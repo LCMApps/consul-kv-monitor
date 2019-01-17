@@ -1,0 +1,46 @@
+{
+  "name": "consul-kv-monitor",
+  "version": "2.0.1",
+  "description": "Service to monitor key-value records in consul",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "lint": "eslint ./",
+    "tests": "yarn run unit-tests && yarn run func-tests",
+    "test:coverage": "NODE_ENV=test istanbul cover _mocha  --print both -- --opts tests/mocha.opts -R spec ./tests",
+    "unit-tests": "NODE_ENV=test mocha --opts tests/mocha.opts -R spec './tests/Unit/**/*.js'",
+    "func-tests": "NODE_ENV=test mocha --opts tests/mocha.opts --timeout 30000 -R spec './tests/Functional/**/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LCMApps/consul-kv-monitor.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.0"
+  },
+  "dependencies": {
+    "deep-freeze": "0.0.1",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "app-module-path": "^2.2.0",
+    "chai": "^4.1.0",
+    "chai-as-promised": "^7.1.1",
+    "consul": "0.25.0",
+    "data-driven": "^1.3.0",
+    "eslint": "^4.4.1",
+    "get-port": "^3.2.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.5.0",
+    "nock": "^9.1.0",
+    "proxyquire": "^1.8.0",
+    "sinon": "^2.4.1"
+  },
+  "bugs": {
+    "url": "https://github.com/LCMApps/consul-kv-monitor/issues"
+  },
+  "homepage": "https://github.com/LCMApps/consul-kv-monitor"
+}

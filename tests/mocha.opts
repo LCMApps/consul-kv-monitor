@@ -1,0 +1,6 @@
+--reporter list
+--slow 50
+--check-leaks
+--recursive
+--require ./tests/Bootstrap.js
+--globals _semaphore
