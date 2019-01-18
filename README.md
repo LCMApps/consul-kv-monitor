@@ -5,7 +5,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/LCMApps/consul-kv-monitor/badge.svg?branch=master)](https://coveralls.io/github/LCMApps/consul-kv-monitor?branch=master)
 
 Module monitors consul key-value store and notifies about changes of a value or a set of values. It relies on
-blocking queries and detects changes as soon as consul agent receives them. Module uses
+blocking queries and detects changes as soon as consul agent receives them. This module uses
 [`consul`](https://github.com/silas/node-consul) module that must be installed too.
 
 Please, check the full documentation below.
