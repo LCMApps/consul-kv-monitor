@@ -53,7 +53,7 @@ function printData(consulKvData) {
     keys.forEach(key => {
         let value = consulKvData.getValue(key);
         if (value === Object(value)) {
-            // we received json decoded data, so just stringifying to pretty outpur in this example
+            // we received json decoded data, so just stringifying to pretty output in this example
             value = JSON.stringify(value);
         }
 
@@ -157,7 +157,7 @@ $ consul kv delete lcm/server-2
 Success! Deleted key: lcm/server-2
 ```
 
-Monitor emits `change` event with an object without any keys.
+Monitor emits `changed` event with an object without any keys.
 
 ```shell
 Some data has changed
