@@ -11,7 +11,8 @@
     "tests": "yarn run unit-tests && yarn run func-tests",
     "test:coverage": "NODE_ENV=test istanbul cover _mocha  --print both -- --opts tests/mocha.opts -R spec ./tests",
     "unit-tests": "NODE_ENV=test mocha --opts tests/mocha.opts -R spec './tests/Unit/**/*.js'",
-    "func-tests": "NODE_ENV=test mocha --opts tests/mocha.opts --timeout 30000 -R spec './tests/Functional/**/*.js'"
+    "func-tests": "NODE_ENV=test mocha --opts tests/mocha.opts --timeout 30000 -R spec './tests/Functional/**/*.js'",
+    "coveralls": "NODE_ENV=test istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- --opts tests/mocha.opts -R spec ./tests && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
     "chai": "^4.1.0",
     "chai-as-promised": "^7.1.1",
     "consul": "0.25.0",
+    "coveralls": "^3.0.2",
     "data-driven": "^1.3.0",
     "eslint": "^4.4.1",
     "get-port": "^3.2.0",
