@@ -344,11 +344,11 @@ concat-stream@^1.6.0:
     readable-stream "^2.2.2"
     typedarray "^0.0.6"
 
-consul@0.25.0:
-  version "0.25.0"
-  resolved "https://registry.yarnpkg.com/consul/-/consul-0.25.0.tgz#05c06a667689220427055de92c6458ded79ff2ed"
+consul@0.34.1:
+  version "0.34.1"
+  resolved "https://registry.yarnpkg.com/consul/-/consul-0.34.1.tgz#b000638ad99db038fbb98e508c32d758bf598968"
   dependencies:
-    papi "^0.25.0"
+    papi "^0.29.0"
 
 core-js@^2.4.0:
   version "2.6.2"
@@ -1271,9 +1271,9 @@ os-tmpdir@~1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
 
-papi@^0.25.0:
-  version "0.25.1"
-  resolved "https://registry.yarnpkg.com/papi/-/papi-0.25.1.tgz#a54c022b1780f9240fae6aa1e861b21c9f8f12d9"
+papi@^0.29.0:
+  version "0.29.0"
+  resolved "https://registry.yarnpkg.com/papi/-/papi-0.29.0.tgz#6bbc332f415d1f3563dea2d2fb8df760d939aebd"
 
 path-is-absolute@^1.0.0:
   version "1.0.1"
