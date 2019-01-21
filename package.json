@@ -39,7 +39,7 @@
     "mocha": "^3.5.0",
     "nock": "^9.1.0",
     "proxyquire": "^1.8.0",
-    "sinon": "^2.4.1"
+    "sinon": "^7.2.3"
   },
   "bugs": {
     "url": "https://github.com/LCMApps/consul-kv-monitor/issues"
