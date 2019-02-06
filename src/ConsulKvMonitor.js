@@ -73,7 +73,7 @@ class ConsulKvMonitor extends EventEmitter {
         this._retryStartService = this._retryStartService.bind(this);
 
         this._watchKvChange = null;
-        this._setWatchUnealthy();
+        this._setWatchUnhealthy();
         this._setUninitialized();
 
         this._fallbackToWatchHealthyInterval = null;
@@ -88,7 +88,7 @@ class ConsulKvMonitor extends EventEmitter {
         this._isWatchHealthy = true;
     }
 
-    _setWatchUnealthy() {
+    _setWatchUnhealthy() {
         this._isWatchHealthy = false;
     }
 
@@ -180,7 +180,7 @@ class ConsulKvMonitor extends EventEmitter {
         this._watchKvChange = null;
         this._unsetFallbackToWatchHealthy();
         this._setUninitialized();
-        this._setWatchUnealthy();
+        this._setWatchUnhealthy();
         return this;
     }
 
@@ -202,10 +202,6 @@ class ConsulKvMonitor extends EventEmitter {
      */
     _registerWatcherAndWaitForInitialKvData() {
         return new Promise((resolve, reject) => {
-            if (this._watchKvChange !== null) {
-                reject(new AlreadyInitializedError('Another `consul.watch` execution is found'));
-            }
-
             this._watchKvChange = this._consul.watch({
                 method: this._consul.kv.get,
                 options: {
@@ -300,7 +296,7 @@ class ConsulKvMonitor extends EventEmitter {
         this._unsetFallbackToWatchHealthy();
 
         if (this.isWatchHealthy()) {
-            this._setWatchUnealthy();
+            this._setWatchUnhealthy();
             this.emit('unhealthy');
         }
 
@@ -314,14 +310,14 @@ class ConsulKvMonitor extends EventEmitter {
      *
      * Monitor becomes `uninitialized` and `unhealthy`.
      *
-     * @emits ConsulKvMonitor#emergencyStop
+     * @emits ConsulKvMonitor#unhealthy
      * @private
      */
     async _onWatcherEnd() {
         this._unsetFallbackToWatchHealthy();
         this._setUninitialized();
         if (this.isWatchHealthy()) {
-            this._setWatchUnealthy();
+            this._setWatchUnhealthy();
             this.emit('unhealthy');
         }
         this._watchKvChange = null;
@@ -354,7 +350,7 @@ class ConsulKvMonitor extends EventEmitter {
         this._fallbackToWatchHealthyInterval = setInterval(() => {
             if (this.isWatchHealthy()) {
 
-                // watcher is currently ends or becomes `healthy`, unset fallback interval',
+                // watcher is currently ends or becomes `healthy`, unset fallback interval
                 this._unsetFallbackToWatchHealthy();
 
                 return;
@@ -366,6 +362,7 @@ class ConsulKvMonitor extends EventEmitter {
                 this._unsetFallbackToWatchHealthy();
 
                 this._setWatchHealthy();
+                this.emit('healthy');
             }
 
         }, HEALTH_FALLBACK_INTERVAL_MSEC);

@@ -261,7 +261,7 @@ describe('ConsulKvMonitor::_setFallbackToWatchHealthy', () => {
         assert.isNull(tg._fallbackToWatchHealthyInterval);
     });
 
-    it('should correctly fallbacks to healthy state', () => {
+    it('should correctly fallback to healthy state', () => {
         tg._setFallbackToWatchHealthy.restore();
 
         tg._unsetFallbackToWatchHealthy.callThrough();
@@ -285,13 +285,16 @@ describe('ConsulKvMonitor::_setFallbackToWatchHealthy', () => {
 
         assert.isOk(tg._unsetFallbackToWatchHealthy.calledOnce);
         assert.isOk(tg._setWatchHealthy.calledOnce);
+        assert.isOk(tg.emit.calledOnce);
+        assert.isOk(tg.emit.calledWithExactly('healthy'));
 
         sinon.assert.callOrder(
             tg._watchKvChange.updateTime,
             tg.isWatchHealthy,
             tg._watchKvChange.updateTime,
             tg._unsetFallbackToWatchHealthy,
-            tg._setWatchHealthy
+            tg._setWatchHealthy,
+            tg.emit
         );
 
         assert.isNull(tg._fallbackToWatchHealthyInterval);
