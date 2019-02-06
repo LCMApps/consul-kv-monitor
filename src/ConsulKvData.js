@@ -4,7 +4,7 @@ class ConsulKvData {
     /**
      * Set records to the map
      *
-     * @param {Array} records
+     * @param {Array} [records]
      */
     constructor(records) {
         this._kvMap = new Map(records);
