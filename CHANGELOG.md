@@ -1,5 +1,15 @@
 # Changelog
 
+### 2.0.2
+
+BUG FIXES:
+
+- Potential bug with rejection of promise
+[[GH-14](https://github.com/LCMApps/consul-kv-monitor/issues/14)]
+- Does not emit "healthy" event in method
+[[GH-15](https://github.com/LCMApps/consul-kv-monitor/issues/15)]
+- JSDoc fixes
+
 ### 2.0.1
 
 IMPROVEMENTS:

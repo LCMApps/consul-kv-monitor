@@ -1,6 +1,6 @@
 {
   "name": "consul-kv-monitor",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Service to monitor key-value records in consul",
   "main": "index.js",
   "directories": {
