@@ -1,6 +1,7 @@
 # consul-kv-monitor
 
 [![NPM version](https://img.shields.io/npm/v/consul-kv-monitor.svg)](https://www.npmjs.com/package/consul-kv-monitor)
+[![Release Status](https://github.com/LCMApps/consul-kv-monitor/workflows/NPM%20Release/badge.svg)](https://github.com/LCMApps/consul-kv-monitor/releases)
 [![Build Status](https://travis-ci.org/LCMApps/consul-kv-monitor.svg?branch=master)](https://travis-ci.org/LCMApps/consul-kv-monitor)
 [![Coverage Status](https://coveralls.io/repos/github/LCMApps/consul-kv-monitor/badge.svg?branch=master)](https://coveralls.io/github/LCMApps/consul-kv-monitor?branch=master)
 
