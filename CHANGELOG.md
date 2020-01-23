@@ -1,5 +1,9 @@
 # Changelog
 
+### 2.0.3
+
+- Dependencies was bumped
+
 ### 2.0.2
 
 BUG FIXES:
